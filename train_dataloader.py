@@ -198,7 +198,7 @@ class CAVEHSIDATAprocess(Dataset):
         for i in range(num):
             img = h5.loadmat(path + imglist[i])
             img1 = img["b"]
-            # img1 = img1/img1.max()
+            img1 = img1/img1.max()
 
             HRHSI = np.transpose(img1, (2, 0, 1))
             # hwc-chw
@@ -355,3 +355,4 @@ class ICVLDATAprocess(Dataset):
 
     def __len__(self):
         return self.train_hrhs_all.shape[0]
+
