@@ -47,7 +47,7 @@ if __name__ == '__main__':
     training_size = 64   # 训练和测试裁剪块的大小
     stride = 32   # 滑动窗口方式裁剪，stride
     stride1 = 32   # 重建用的stride
-    LR = 4e-4
+    LR = 2e-4
     EPOCH =1000
     weight_decay=1e-8
     BATCH_SIZE = 16
@@ -152,7 +152,7 @@ if __name__ == '__main__':
                 for i in range(0, len(imglist)):
                     img = h5.loadmat(path2 + imglist[i])
                     img1 = img["b"]
-                    # img1 = img1 / img1.max()
+                    img1 = img1 / img1.max()
                     HRHSI = torch.Tensor(np.transpose(img1, (2, 0, 1)))
 
                     w, h = int(HRHSI.shape[1] / downsample_factor), int(HRHSI.shape[2] / downsample_factor)
