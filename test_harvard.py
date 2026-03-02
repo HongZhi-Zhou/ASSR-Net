@@ -106,7 +106,7 @@ for i in range(0, len(imglist)):
     img = h5.loadmat(path + imglist[i])
     if dataset == 'CAVE':
         img1 = img["b"]
-        # img1=img1/img1.max() # 归一化
+        img1=img1/img1.max() # 归一化
     elif dataset == 'Harvard':
         img1 = img["ref"]
         img1 = img1 / img1.max()  # 归一化
